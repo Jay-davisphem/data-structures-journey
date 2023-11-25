@@ -29,9 +29,14 @@ def sub_sequences_r1(arr: list[object], i: int = 0) -> list[list[object]]:
     if i == len(arr):
         return [[]]
     sub_sequences = sub_sequences_r1(arr, i + 1)
-    return [[arr[i]] + sub_sequence for sub_sequence in sub_sequences] + sub_sequences
+    #  return [[arr[i]] + sub_sequence for sub_sequence in sub_sequences] + sub_sequences
+
+    temp = []
+    for sub_seq in sub_sequences:
+        temp.append([arr[i]] + sub_seq)
+    return temp + sub_sequences
 
 
-print(sub_sequences_r([3, 1, 2]))
+print(sub_sequences_r1([3, 1, 2], 0))
 
-print_sub_r(0, [], [3, 1, 4])
+# print_sub_r(0, [], [3, 1, 4])
