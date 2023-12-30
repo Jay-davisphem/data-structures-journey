@@ -5,6 +5,8 @@ class Solution:
         for i in range(len(nums)):
             total += nums[i]
             mod = total % k if k != 0 else total
+            
+            # meant we've add our required subarray, which makes us get the same mod
             if mod in hash_map and i - hash_map[mod] >= 2:
                 return True
 
